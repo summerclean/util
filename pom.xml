@@ -150,9 +150,40 @@
       <artifactId>commons-io</artifactId>
       <version>2.11.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
+    <dependency>
+      <groupId>org.apache.rocketmq</groupId>
+      <artifactId>rocketmq-spring-boot-starter</artifactId>
+      <version>2.2.0</version>
+    </dependency>
 
-
-
+    <!-- https://mvnrepository.com/artifact/com.aliyun.openservices/aliyun-openservices -->
+    <dependency>
+      <groupId>com.aliyun.openservices</groupId>
+      <artifactId>aliyun-openservices</artifactId>
+      <version>OTS-2.0.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
+    <dependency>
+      <groupId>com.aliyun.openservices</groupId>
+      <artifactId>ons-client</artifactId>
+      <version>1.8.8.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.feign</groupId>
+      <artifactId>feign-core</artifactId>
+      <version>8.18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-openfeign-core</artifactId>
+      <version>2.1.5.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-core</artifactId>
+      <version>10.4.0</version>
+    </dependency>
 
 
   </dependencies>
