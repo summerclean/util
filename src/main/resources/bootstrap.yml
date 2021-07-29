@@ -1,0 +1,206 @@
+spring:
+  application:
+    name: bizworks-srv-promotion
+  profiles:
+    active: local
+  #  cloud:
+  #    config:
+  ##      fail-fast: true
+  #      discovery:
+  #        service-id: techworks-config-server
+  #        enabled: true
+  #      profile: ${spring.profiles.active}
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 9900
+
+---
+spring:
+  profiles: sihai
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: localhost:18848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+
+eureka:
+  instance:
+    #    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18000/eureka/
+    registry-fetch-interval-seconds: 10
+    #本地调试，放开这两行注释
+    register-with-eureka: false
+    fetch-registry: true
+
+---
+spring:
+  profiles: ali
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: localhost:18848
+        group: DEFAULT_GROUP
+        file-extension: yaml
+eureka:
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:28000/eureka/
+    registry-fetch-interval-seconds: 10
+---
+
+spring:
+  profiles: local
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: localhost:18848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+
+eureka:
+  instance:
+    #    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+    registry-fetch-interval-seconds: 10
+    #本地调试，放开这两行注释
+    register-with-eureka: false
+    fetch-registry: true
+
+---
+spring:
+  profiles: dev
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: 172.19.175.151:8848
+        file-extension: yaml
+eureka:
+  instance:
+    #    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      #      defaultZone: http://47.97.204.51:7240/eureka/
+      defaultZone: http://172.19.177.253:8000/eureka/
+    registry-fetch-interval-seconds: 10
+    #本地调试，放开这两行注释
+#    register-with-eureka: false
+#    fetch-registry: true
+
+---
+spring:
+  profiles: test
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: 172.19.175.151:8848
+        file-extension: yaml
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.175.153:8000/eureka/
+    #      defaultZone: http://test.mageline.cn:8000/eureka/
+    registry-fetch-interval-seconds: 10
+    #本地调试，放开这两行注释
+#    register-with-eureka: false
+#    fetch-registry: true
+
+---
+spring:
+  profiles: prod
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        namespace: 6ec27806-5cd1-46b5-9c80-b40a74c8c61d
+        server-addr: mse-2b9aae03-nacos-ans.mse.aliyuncs.com:8848
+        file-extension: yaml
+eureka:
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.111.136:8000/eureka/,http://172.19.111.137:8000/eureka/
+    registry-fetch-interval-seconds: 10
+
+---
+spring:
+  profiles: uat
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: 172.19.175.151:8848
+        file-extension: yaml
+eureka:
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.175.154:8000/eureka/
+    registry-fetch-interval-seconds: 10
+
+---
+spring:
+  profiles: yace
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        namespace: ${spring.profiles}
+        server-addr: 172.19.175.151:8848
+        file-extension: yaml
+eureka:
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.119.131:8000/eureka/,http://172.19.119.132:8000/eureka/,http://172.19.119.133:8000/eureka/,http://172.19.119.134:8000/eureka/
+    registry-fetch-interval-seconds: 10
+

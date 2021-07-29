@@ -87,7 +87,7 @@ public class HttpWebUtils {
     }
 
     public static String getClientIp() {
-        return HttpRequestUtils.getIpAddress(getRequest());
+        return IpAddressUtil.getIpAddress(getRequest());
     }
 
     public static String getClientIp2() {
